@@ -8,12 +8,12 @@
       "output": "",
       "comparison": "included",
       "timeout": 5,
-      "points": 4
+      "points": 2
     },
     {
       "name": "Test0",
       "setup": "",
-      "run": "gradle test --Tests.testTheTest",
+      "run": "gradle test --tests Tests.testTheTest",
       "input": "",
       "output": "",
       "comparison": "included",
@@ -23,47 +23,137 @@
     {
       "name": "Test1",
       "setup": "",
-      "run": "gradle test Tests.test1ListSongsFromArtists",
+      "run": "gradle test --tests Tests.test1ListSongsFromArtists",
       "input": "",
       "output": "",
       "comparison": "included",
       "timeout": 10,
-      "points": 4
+      "points": 2
     },
     {
       "name": "Test3",
       "setup": "",
-      "run": "gradle test --Tests.test3DeleteStream",
+      "run": "gradle test --tests Tests.test3DeleteStream",
       "input": "",
       "output": "",
       "comparison": "included",
       "timeout": 10,
-      "points": 4
+      "points": 2
     },
     {
       "name": "Test4",
       "setup": "",
-      "run": "gradle test --Tests.test4ListenToStream",
+      "run": "gradle test --tests Tests.test4ListenToStream",
       "input": "",
       "output": "",
       "comparison": "included",
       "timeout": 10,
-      "points": 4
+      "points": 2
     },
     {
       "name": "Test5",
       "setup": "",
-      "run": "gradle test --test Tests.test5RecommendSongs",
+      "run": "gradle test --tests Tests.test5RecommendSongs",
       "input": "",
       "output": "",
       "comparison": "included",
       "timeout": 10,
-      "points": 4
+      "points": 2
     },
     {
       "name": "Test6",
       "setup": "",
       "run": "gradle test --tests Tests.test6SurpriseSongs",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 2
+    },
+    {
+      "name": "Test7",
+      "setup": "",
+      "run": "gradle test --tests \"Tests.test7ListPodcastsByPodcastAuthor\"",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 2
+    },
+    {
+      "name": "Test8",
+      "setup": "",
+      "run": "gradle test --tests Tests.test8ListAudiobooksByAuthor",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 2
+    },
+    {
+      "name": "Test9",
+      "setup": "",
+      "run": "gradle test --tests Tests.test9ListUsersMultipleStreams",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 2
+    },
+    {
+      "name": "Test10",
+      "setup": "",
+      "run": "gradle test --tests Tests.test10AddMultipleStreams",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 4
+    },
+    {
+      "name": "Test11",
+      "setup": "",
+      "run": "gradle test --tests Tests.test11RecommendStreamPodcast",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 4
+    },
+    {
+      "name": "Test12",
+      "setup": "",
+      "run": "gradle test --tests Tests.test12RecommendStreamAudiobook",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 4
+    },
+    {
+      "name": "Test13",
+      "setup": "",
+      "run": "gradle test --tests Tests.test13MultipleSurpriseStreamRecommendation",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 4
+    },
+    {
+      "name": "Test14",
+      "setup": "",
+      "run": "gradle test --tests Tests.test14AddAndRecommendPodcasts",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 4
+    },
+    {
+      "name": "Test15",
+      "setup": "",
+      "run": "gradle test --tests Tests.test15MixedActions",
       "input": "",
       "output": "",
       "comparison": "included",
