@@ -15,14 +15,32 @@ public class RecommendCommand extends Command {
         super(project);
     }
 
+    // FACADE
+    // It decouples a client implementation from the complex subsystem
     @Override
     public void executa(String[] line) {
 
-        Integer userID = Integer.parseInt(line[0]);
-        User user = this.project.returnUser(userID);
-        Integer recommendedType;
+        // Generate recommended list using the "secret & complex" algorithm
+        ArrayList<Stream> recommendedStreamList = this.algorithmRecommendedList(line[0], line[2]);
+        // Print the first 5 elements of this list
+        Stream.printStreamList(recommendedStreamList, this.project, 5);
 
-        switch (line[2]) {
+    }
+
+    public ArrayList<Stream> algorithmRecommendedList(String id, String desiredType) {
+
+        Integer userID = Integer.parseInt(id);
+        User user = this.project.returnUser(userID);
+        Integer recommendedType = RecommendCommand.getRecommendedType(desiredType);
+        ArrayList<Stream> recommendedStreamList = this.getRecommendedStreamList(user, recommendedType);
+        Collections.sort(recommendedStreamList, (o1, o2) -> o1.getNoOfStreams().compareTo(o2.getNoOfStreams()));
+        return recommendedStreamList;
+    }
+
+    private static Integer getRecommendedType(String type) {
+
+        Integer recommendedType;
+        switch (type) {
             case "SONG":
                 recommendedType = 1;
                 break;
@@ -38,11 +56,13 @@ public class RecommendCommand extends Command {
 
         if (recommendedType == null) {
             System.out.println("Error! Wrong genre");
-            return;
         }
+        return recommendedType;
+    }
+
+    private ArrayList<Stream> getRecommendedStreamList(User user, Integer recommendedType) {
 
         ArrayList<Integer> listenedStreamersID = new ArrayList<>();
-
         for (Integer i : user.getStreams()) {
             Stream stream = this.project.returnStream(i);
             if (!stream.getStreamType().equals(recommendedType) && listenedStreamersID.contains(stream.getStreamerId()))
@@ -60,28 +80,7 @@ public class RecommendCommand extends Command {
                     unlistenedStreams.add(stream);
             }
         }
-
-        Collections.sort(unlistenedStreams, (o1, o2) -> o1.getNoOfStreams().compareTo(o2.getNoOfStreams()));
-
-        if (unlistenedStreams.isEmpty())
-            return;
-
-        // start printing
-        System.out.print("[");
-        int ok = 0;
-        int i = 0;
-
-        for (Stream stream : unlistenedStreams) {
-            if (ok == 1)
-                System.out.print(",");
-            Streamer streamer = this.project.returnStreamer(stream.getStreamerId());
-            stream.printStream(streamer.getName());
-            ok = 1;
-            i++;
-            if (i == 5)
-                break;
-        }
-        System.out.println("]");
-
+        return unlistenedStreams;
     }
+
 }

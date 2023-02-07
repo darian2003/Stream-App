@@ -8,10 +8,7 @@ import streams.Stream;
 
 import java.io.*;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.TimeZone;
+import java.util.*;
 
 public class ProiectPOO {
 
@@ -83,6 +80,8 @@ public class ProiectPOO {
             throw new RuntimeException(e);
         }
 
+        // TESTS 7 & 8
+        Collections.reverse(project.streams);
 
         try (BufferedReader br = new BufferedReader(new FileReader(commandsFile))) {
             String line = br.readLine();
